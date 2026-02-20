@@ -10,7 +10,9 @@ const morgan = require('morgan');
 
 // 1). MIDDLEWARES
 
-app.use(morgan('dev')); // Using morgan middleware in 'dev' mode for concise output colored by response status for development use.
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev')); // Using morgan middleware in 'dev' mode for concise output colored by response status for development use.
+}
 
 // Middleware to parse JSON bodies from incoming requests and make it available in req.body.
 app.use(express.json());
