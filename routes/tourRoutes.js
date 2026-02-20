@@ -9,7 +9,13 @@ const {
   createTour,
   updateTour,
   deleteTour,
+  checkID,
 } = require('../controllers/tourController');
+
+// PARAM MIDDLEWARE
+// This middleware will run for any route that contains the ':id' parameter.
+// It logs the ID of the tour being accessed.
+router.param('id', checkID);
 
 router.route('/').get(getAllTours).post(createTour);
 router.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
