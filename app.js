@@ -15,6 +15,9 @@ app.use(morgan('dev')); // Using morgan middleware in 'dev' mode for concise out
 // Middleware to parse JSON bodies from incoming requests and make it available in req.body.
 app.use(express.json());
 
+// Serving static files from the 'public' directory. This means that any file in the 'public' folder can be accessed directly via a URL.
+app.use(express.static(`${__dirname}/public`));
+
 // Custom middleware to log a message for every incoming request.
 app.use((req, res, next) => {
   console.log('Hello from the middleware 👋');
