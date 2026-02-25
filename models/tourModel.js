@@ -49,6 +49,7 @@ const tourSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now(),
+    select: false, // Exclude the createdAt field from the results
   },
   startDates: [Date],
 });
